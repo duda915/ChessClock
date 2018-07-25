@@ -1,0 +1,99 @@
+.rootPane{
+}
+
+.label {
+    -fx-font-smoothing-type: gray;
+    -fx-text-fill: white;
+    -fx-font-family: 'Open Sans', sans-serif;
+    -fx-font-size: 15px;
+}
+
+.button {
+    -fx-font-smoothing-type: gray;
+    -fx-text-fill: white;
+    -fx-font-family: 'Open Sans', sans-serif;
+    -fx-font-size: 15px;
+    -fx-background-color: transparent;
+    -fx-border-style: solid;
+    -fx-border-color: white;
+   -fx-border-radius: 7px;
+}
+
+.button:hover {
+    -fx-border-color: #78BB70;
+}
+
+.button:pressed {
+    -fx-scale-x: 0.9;
+    -fx-scale-y: 0.9;
+}
+
+.text-field {
+    -fx-background-color: transparent;
+    -fx-padding: 0px;
+}
+
+.playerName {
+    -fx-font-smoothing-type: gray;
+    -fx-text-fill: white;
+    -fx-font-family: 'Open Sans', sans-serif;
+    -fx-font-size: 20px;
+    -fx-border-style: solid;
+    -fx-border-color: white;
+    -fx-border-radius: 7px;
+}
+
+.timerActive {
+    -fx-font-smoothing-type: gray;
+    -fx-text-fill: white;
+    -fx-font-family: 'Open Sans', sans-serif;
+    -fx-font-size: 72px;
+    -fx-border-style: solid;
+    -fx-border-color: white;
+    -fx-border-radius: 7px;
+}
+
+.timerInactive {
+    -fx-font-smoothing-type: gray;
+    -fx-text-fill: white;
+    -fx-font-family: 'Open Sans', sans-serif;
+    -fx-font-size: 20px;
+    -fx-border-style: solid;
+    -fx-border-color: white;
+    -fx-border-radius: 7px;
+}
+
+
+
+.p1Increment {
+    -fx-font-smoothing-type: gray;
+    -fx-text-fill: white;
+    -fx-font-family: 'Open Sans', sans-serif;
+    -fx-font-size: 15px;
+    -fx-background-color: #BB7070 ;
+    -fx-border-style: none;
+}
+
+.p2Increment {
+    -fx-font-smoothing-type: gray;
+    -fx-text-fill: white;
+    -fx-font-family: 'Open Sans', sans-serif;
+    -fx-font-size: 15px;
+    -fx-background-color: #78BB70;
+    -fx-border-radius: 6px;
+    -fx-border-style: none;
+
+}
+
+.topBox {
+    -fx-background-color: #7074BB;
+}
+
+.activePlayer {
+    -fx-background-color: #BB7070;
+}
+
+
+.inactivePlayer {
+    -fx-background-color: #78BB70;
+}
