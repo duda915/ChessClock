@@ -1,7 +1,6 @@
 package com.mdud.chessclock;
 
 import javafx.animation.Animation;
-import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
@@ -12,11 +11,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.util.StringConverter;
-import javafx.util.converter.NumberStringConverter;
 
-import java.text.Format;
-import java.text.ParseException;
-import java.util.function.UnaryOperator;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Controller  {
@@ -24,7 +20,6 @@ public class Controller  {
     private Model model;
     private StringProperty startStopButton;
     private StringConverter<Number> stringConverter;
-    private TextFormatter<Number> doubleTextFormatter;
 
     @FXML
     private TextField p1IncrementTextField;
@@ -64,16 +59,24 @@ public class Controller  {
                 try {
                     return Double.parseDouble(string);
                 } catch (NumberFormatException pe) {
-                    return 2;
+                    return 0;
                 }
             }
         };
+
 
 
     }
 
     @FXML
     public void initialize() {
+
+        p1IncrementTextField.setTextFormatter(getIncrementTextFormatterInstance());
+        p2IncrementTextField.setTextFormatter(getIncrementTextFormatterInstance());
+        timerP1.setTextFormatter(getTimerTextFormatterInstance());
+        timerP2.setTextFormatter(getTimerTextFormatterInstance());
+
+
         p1IncrementTextField.textProperty().bindBidirectional(model.getFirstPlayerClock().incrementTimeProperty(),
                 stringConverter);
         p2IncrementTextField.textProperty().bindBidirectional(model.getSecondPlayerClock().incrementTimeProperty(),
@@ -90,7 +93,27 @@ public class Controller  {
         rootPane.requestFocus();
     }
 
+    private TextFormatter<Number> getTimerTextFormatterInstance() {
+        return new TextFormatter<>(stringConverter, 1.0, change -> {
+            Pattern pattern = Pattern.compile("[0-9]{1,3}[.][0-9]?");
+            Matcher matcher = pattern.matcher(change.getControlNewText());
+            if(!matcher.matches() && !matcher.hitEnd()) {
+                change.setText("");
+            }
+            return change;
+        });
+    }
 
+    private TextFormatter<Number> getIncrementTextFormatterInstance() {
+        return new TextFormatter<>(stringConverter, 1.0, change -> {
+            Pattern pattern = Pattern.compile("[0-9]{1,2}[.][0-9]?");
+            Matcher matcher = pattern.matcher(change.getControlNewText());
+            if(!matcher.matches() && !matcher.hitEnd()) {
+                change.setText("");
+            }
+            return change;
+        });
+    }
 
     public void handleStartButton() {
         if(model.getTimer().getStatus() == Animation.Status.STOPPED){

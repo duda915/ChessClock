@@ -12,13 +12,13 @@ import java.util.TimerTask;
 public class Clock {
     //remainingTime in format 00.0s -> 600 == 60.00s
     private DoubleProperty remainingTime;
-    private IntegerProperty incrementTime;
+    private DoubleProperty incrementTime;
 
     private boolean isLoser = false;
 
     public Clock(double remainingTime, int incrementTime) {
         this.remainingTime = new SimpleDoubleProperty(remainingTime);
-        this.incrementTime = new SimpleIntegerProperty(incrementTime);
+        this.incrementTime = new SimpleDoubleProperty(incrementTime);
 
     }
 
@@ -43,11 +43,11 @@ public class Clock {
         return remainingTime;
     }
 
-    public int getIncrementTime() {
+    public double getIncrementTime() {
         return incrementTime.get();
     }
 
-    public IntegerProperty incrementTimeProperty() {
+    public DoubleProperty incrementTimeProperty() {
         return incrementTime;
     }
 
