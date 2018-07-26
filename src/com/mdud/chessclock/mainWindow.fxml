@@ -10,9 +10,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.control.TextField?>
-<GridPane fx:controller="com.mdud.chessclock.Controller"
+<GridPane fx:id="rootPane" fx:controller="com.mdud.chessclock.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="0" vgap="0"
-          styleClass="rootPane">
+          styleClass="rootPane"
+          >
     <rowConstraints>
         <RowConstraints prefHeight="70"/>
         <RowConstraints prefHeight="290"/>
@@ -26,12 +27,12 @@
           styleClass="topBox" GridPane.columnIndex="0" GridPane.columnSpan="2"  GridPane.rowIndex="0" alignment="CENTER">
         <Region prefWidth="25"/>
         <Label text="Time increment: "/>
-        <TextField styleClass="p1Increment" prefWidth="30" text="2" alignment="CENTER"/>
+        <TextField fx:id="p1IncrementTextField" styleClass="p1Increment" prefWidth="30" alignment="CENTER"/>
         <Region prefWidth="1" HBox.hgrow="ALWAYS"/>
-        <Button text="Start" prefWidth="90"/>
+        <Button text="${controller.startStopButton}" prefWidth="90" onAction="#handleStartButton"/>
         <Region prefWidth="1" HBox.hgrow="ALWAYS"/>
         <Label text="Time increment: " alignment="CENTER_RIGHT"/>
-        <TextField styleClass="p2Increment" prefWidth="30" text="2" alignment="CENTER"/>
+        <TextField fx:id="p2IncrementTextField" styleClass="p2Increment" prefWidth="30" alignment="CENTER"/>
         <Region prefWidth="25"/>
     </HBox>
 
@@ -39,14 +40,14 @@
           GridPane.rowIndex="1" GridPane.columnIndex="0" alignment="CENTER" >
         <TextField styleClass="playerName" text="Player1" maxWidth="260" alignment="CENTER"/>
         <Region prefHeight="75" />
-        <TextField styleClass="timerActive" text="1:00" maxWidth="260" alignment="CENTER"/>
+        <TextField fx:id="timerP1" styleClass="timerActive"  maxWidth="260" alignment="CENTER"/>
 
     </VBox>
     <VBox styleClass="inactivePlayer" GridPane.hgrow="ALWAYS" GridPane.vgrow="SOMETIMES"
           GridPane.rowIndex="1" GridPane.columnIndex="1" alignment="CENTER">
         <TextField styleClass="playerName" text="Player1" maxWidth="260" alignment="CENTER"/>
         <Region prefHeight="75" />
-        <TextField styleClass="timerInactive" text="1:00" maxWidth="260" alignment="CENTER"/>
+        <TextField fx:id="timerP2" styleClass="timerInactive" maxWidth="260" alignment="CENTER"/>
     </VBox>
 
     <stylesheets>
