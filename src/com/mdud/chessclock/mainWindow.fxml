@@ -36,14 +36,14 @@
         <Region prefWidth="25"/>
     </HBox>
 
-    <VBox styleClass="activePlayer" GridPane.hgrow="ALWAYS" GridPane.vgrow="SOMETIMES"
+    <VBox fx:id="firstPlayerBox" styleClass="activePlayer" GridPane.hgrow="ALWAYS" GridPane.vgrow="SOMETIMES"
           GridPane.rowIndex="1" GridPane.columnIndex="0" alignment="CENTER" >
         <TextField styleClass="playerName" text="Player1" maxWidth="260" alignment="CENTER"/>
         <Region prefHeight="75" />
         <TextField fx:id="timerP1" styleClass="timerActive"  maxWidth="260" alignment="CENTER"/>
 
     </VBox>
-    <VBox styleClass="inactivePlayer" GridPane.hgrow="ALWAYS" GridPane.vgrow="SOMETIMES"
+    <VBox fx:id="secondPlayerBox" styleClass="inactivePlayer" GridPane.hgrow="ALWAYS" GridPane.vgrow="SOMETIMES"
           GridPane.rowIndex="1" GridPane.columnIndex="1" alignment="CENTER">
         <TextField styleClass="playerName" text="Player1" maxWidth="260" alignment="CENTER"/>
         <Region prefHeight="75" />
